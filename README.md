@@ -10,8 +10,6 @@ Add **reCAPTCHA v3** verification to your Flutter apps — simple client token f
 * [What is this](#what-is-this)
 * [Features](#features)
 * [Install](#install)
-* [Android / iOS setup](#android--ios-setup)
-* [Get Google recaptcha v3 API key](#get-google-recaptcha-v3-api-key)
 * [Usage (example)](#usage-example)
 * [Important client-side notes](#important-client-side-notes)
 * [Server-side verification](#server-side-verification)
@@ -35,6 +33,9 @@ Add **reCAPTCHA v3** verification to your Flutter apps — simple client token f
 ## Install
 
 Add the package to your `pubspec.yaml`.
+```bash
+flutter pub add recaptcha_v3_flutter
+```
 
 If the package is not published to pub.dev yet, use the Git dependency:
 
@@ -55,24 +56,6 @@ flutter pub get
 ## Android / iOS setup
 
 These are general guidelines — adapt to your project.
-
-### Android
-
-1. Ensure your app has internet permission in `android/app/src/main/AndroidManifest.xml`:
-
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
-```
-
-2. If your integration uses a WebView or relies on external domains, make sure network settings allow requests to Google domains during development.
-
-3. (If needed) configure proguard rules and AndroidX compatibility as with any Flutter plugin.
-
-### iOS
-
-1. No special keys are required by default for reCAPTCHA v3, but if you need to allow non-HTTPS requests during development, adjust `Info.plist` App Transport Security settings. Prefer enabling domain access only for `google.com` if you must loosen ATS.
-
-2. Make sure your app targets a modern iOS SDK and is compatible with Flutter plugin embedding.
 
 ### Get Google recaptcha v3 API key
 * Go to the recaptcha admin console at https://www.google.com/recaptcha/admin
