@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
               /// Execute the Recaptcha V3  using this method call
               AppRecaptchaHandler.executeV3(action: 'login');
             },
-            child: const Text('submit'),
+            child: const Text('Login'),
           ),
           const SizedBox(height: 20),
           ElevatedButton(
@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 'Persisted Token ${AppRecaptchaHandler.instance.captchaToken}',
               );
             },
-            child: const Text('Persisted Token'),
+            child: const Text('Show Token'),
           ),
         ],
       ),

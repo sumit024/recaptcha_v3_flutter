@@ -1,7 +1,7 @@
 name: recaptcha_v3_flutter
 description: "Add recaptcha verification to your flutter apps"
 version: 0.0.1
-homepage:
+homepage: https://github.com/sumit024/recaptcha_v3_flutter
 
 environment:
   sdk: ^3.9.0
