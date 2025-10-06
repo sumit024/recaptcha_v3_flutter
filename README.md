@@ -99,34 +99,27 @@ You will get two keys:
 import 'package:flutter/material.dart';
 import 'package:recaptcha_v3_flutter/recaptcha_v3_flutter.dart';
 
-class LoginPage extends StatelessWidget {
-  final _siteKey = 'YOUR_RECAPTCHA_SITE_KEY';
+// in your main() method
+AppRecaptchaHandler.instance.setupSiteKey(dataSiteKey: 'YOUR_SITE_KEY');
 
-  Future<void> _onLoginPressed() async {
-    // 1) Get a token from the client (this library)
-    // NOTE: adapt function name/signature to the actual API in this package
-    final token = await RecaptchaV3.execute(siteKey: _siteKey, action: 'login');
+// some where in your widget tree
+AppRecaptchaWidget(
+onTokenReceived: (token){},
+onError: (error) {
+// display a toast message
+},
+onLoading: () {
+// show a loading indicator
+},
+),
 
-    // 2) Send token to your backend for verification
-    final res = await http.post(
-      Uri.parse('https://your-backend.example.com/verify-recaptcha'),
-      body: {
-        'token': token,
-      },
-    );
-
-    if (res.statusCode == 200) {
-      // parse backend response and continue
-    } else {
-      // handle failure
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: _onLoginPressed, child: Text('Login'));
-  }
-}
+ElevatedButton(
+onPressed: () {
+/// Execute the Recaptcha V3  using this method call
+AppRecaptchaHandler.executeV3(action: 'login');
+},
+child: const Text('submit'),
+),
 ```
 
 ### Important client-side notes
