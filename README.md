@@ -93,34 +93,7 @@ You will get two keys:
 
 ## Usage (example)
 
-> The snippet below is a **clear, generic example** showing the expected flow. Replace the class/method names with the actual API if they differ in the library.
-
-```dart
-import 'package:flutter/material.dart';
-import 'package:recaptcha_v3_flutter/recaptcha_v3_flutter.dart';
-
-// in your main() method
-AppRecaptchaHandler.instance.setupSiteKey(dataSiteKey: 'YOUR_SITE_KEY');
-
-// some where in your widget tree
-AppRecaptchaWidget(
-onTokenReceived: (token){},
-onError: (error) {
-// display a toast message
-},
-onLoading: () {
-// show a loading indicator
-},
-),
-
-ElevatedButton(
-onPressed: () {
-/// Execute the Recaptcha V3  using this method call
-AppRecaptchaHandler.executeV3(action: 'login');
-},
-child: const Text('submit'),
-),
-```
+<pre> ```dart import 'package:flutter/material.dart'; import 'package:recaptcha_v3_flutter/recaptcha_v3_flutter.dart'; // In your main() method AppRecaptchaHandler.instance.setupSiteKey( dataSiteKey: 'YOUR_SITE_KEY', ); // Somewhere in your widget tree AppRecaptchaWidget( onTokenReceived: (token) { // Handle the received token }, onError: (error) { // Display a toast message or handle error }, onLoading: () { // Show a loading indicator }, ), ElevatedButton( onPressed: () { /// Execute the reCAPTCHA v3 using this method call AppRecaptchaHandler.executeV3(action: 'login'); }, child: const Text('Submit'), ), ``` </pre>
 
 ### Important client-side notes
 * Tokens are short-lived (usually valid for ~2 minutes). Fetch a fresh token when needed.
